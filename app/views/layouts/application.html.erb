@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Mr. Fix-It!</title>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -32,10 +33,10 @@
         <% end %>
       </ul>
     </div>
-    <div class="content">
-    <div class="flash-messages">
-      <%= flash[:alert] %>
-      <h3><%= flash[:notice] %></h3>
+    <div class="container">
+      <div class="flash-messages">
+        <%= flash[:alert] %>
+        <%= flash[:notice] %>
       </div>
       <%= yield %>
     </div>

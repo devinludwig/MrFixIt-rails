@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   resources :jobs
   resources :workers
+
+  patch '/progress_update/:id', to: 'jobs#update_progress', as: 'job_update'
+
 end

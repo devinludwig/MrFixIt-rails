@@ -1,0 +1,4 @@
+<li class='collection-item' id='job<%= job.id.to_s %>'>
+  <%= link_to job.title, job_path(job) %>
+  <%= link_to 'Complete', complete_job_path(job), class: 'right' %>
+</li>

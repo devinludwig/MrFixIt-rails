@@ -2,15 +2,18 @@
 <div class="row">
   <ul class="collection with-header col s6">
     <h3 class="collection-header">Pending:</h3>
-    <% current_worker.jobs.each do |job| %>
+    <% current_worker.jobs.select { |job| job.in_progress == false }.each do |job| %>
       <li class="collection-item" id='job<%= job.id.to_s %>'>
         <%= link_to job.title, job_path(job) %>
-        <%= link_to "Mark as 'in progress'", job_path(job, change: 'progress'), method: 'patch', remote: true, class: 'right' %>
+        <%= link_to "Mark as 'in progress'", job_update_path(job), method: 'patch', remote: true, class: 'right' %>
       </li>
     <% end %>
   </ul>
 
-  <ul class="collection with-header col s6" id="jobs-in-progess">
+  <ul class="collection with-header col s6" id="jobs-in-progress">
     <h3 class="collection-header">In Progress:</h3>
+    <% current_worker.jobs.select { |job| job.in_progress == true }.each do |job| %>
+      <%= render(job) %>
+    <% end %>
   </ul>
 </div>
