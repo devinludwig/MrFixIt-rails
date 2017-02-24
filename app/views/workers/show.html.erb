@@ -1,7 +1,16 @@
 <h1><%= current_worker.email %>'s claimed jobs:</h1>
+<div class="row">
+  <ul class="collection with-header col s6">
+    <h3 class="collection-header">Pending:</h3>
+    <% current_worker.jobs.each do |job| %>
+      <li class="collection-item" id='job<%= job.id.to_s %>'>
+        <%= link_to job.title, job_path(job) %>
+        <%= link_to "Mark as 'in progress'", job_path(job, change: 'progress'), method: 'patch', remote: true, class: 'right' %>
+      </li>
+    <% end %>
+  </ul>
 
-<ul>
-<% current_worker.jobs.each do |job| %>
-<li><%= link_to job.title, job_path(job) %></li>
-<% end %>
-</ul>
+  <ul class="collection with-header col s6" id="jobs-in-progess">
+    <h3 class="collection-header">In Progress:</h3>
+  </ul>
+</div>

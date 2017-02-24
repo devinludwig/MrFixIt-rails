@@ -25,15 +25,28 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if current_worker
-      if @job.update(pending: true, worker_id: current_worker.id)
-        respond_to do |format|
-          format.html { redirect_to worker_path(current_worker) }
-          format.js
+      if params[:change] == 'progress'
+        if @job.update(in_progress: true)
+          respond_to do |format|
+            format.html { redirect_to worker_path(current_worker) }
+            format.js
+          end
+          flash[:notice] = "You've successfully marked job 'in progress'!."
+        else
+          redirect_to worker_path(current_worker)
+          flash[:notice] = "Something went wrong!"
         end
-        flash[:notice] = "You've successfully claimed this job."
       else
-        render :show
-        flash[:notice] = "Something went wrong!"
+        if @job.update(pending: true, worker_id: current_worker.id)
+          respond_to do |format|
+            format.html { redirect_to worker_path(current_worker) }
+            format.js
+          end
+          flash[:notice] = "You've successfully claimed this job."
+        else
+          render :show
+          flash[:notice] = "Something went wrong!"
+        end
       end
     else
       # We need to streamline this process better in the future! - Mr. Fix-It.
