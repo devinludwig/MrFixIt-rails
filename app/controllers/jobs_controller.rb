@@ -49,7 +49,7 @@ class JobsController < ApplicationController
         format.html { redirect_to worker_path(current_worker) }
         format.js
       end
-      flash[:notice] = "You've successfully marked job 'in progress'."
+      flash[:notice] = "Job marked 'in progress'."
     else
       redirect_to worker_path(current_worker)
       flash[:notice] = "Something went wrong!"
@@ -58,7 +58,16 @@ class JobsController < ApplicationController
 
   def complete
     @job = Job.find(params[:id])
-
+    if @job.update(completed: true)
+      respond_to do |format|
+        format.html { redirect_to worker_path(current_worker) }
+        format.js
+      end
+      flash[:notice] = "Job marked Complete!"
+    else
+      redirect_to worker_path(current_worker)
+      flash[:notice] = "Something went wrong!"
+    end
   end
 
 private

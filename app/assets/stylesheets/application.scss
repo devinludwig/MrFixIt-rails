@@ -23,7 +23,7 @@ body {
 
  .navigation-menu ul {
    list-style: none;
-   background-color: #444;
+   background-color: red;
    text-align: center;
    margin: 0;
  }
@@ -36,24 +36,30 @@ body {
 
 .navigation-menu a {
   text-decoration: none;
-  color: #fff;
+  color: white;
   display: block;
 }
 
 .navigation-menu a:hover {
-  background-color: #f7b50c;
+  background-color: green;
 }
 
 .header {
-  background-color: #888;
+  background-color: blue;
   text-align: center;
   margin: -16px;
   margin-top: -22px;
   padding: 15px;
+  h4 {
+    color: white;
+  }
 }
 
 .image {
   align-content: center;
+  img {
+    width: 100%;
+  }
 }
 
 .page-title {
