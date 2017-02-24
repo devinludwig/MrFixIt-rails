@@ -15,6 +15,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @job.user_id = current_user.id
     if @job.save
       redirect_to jobs_path
     else
@@ -58,7 +59,7 @@ class JobsController < ApplicationController
 
   def complete
     @job = Job.find(params[:id])
-    if @job.update(completed: true)
+    if @job.update(completed: true, in_progress: false, pending: false)
       respond_to do |format|
         format.html { redirect_to worker_path(current_worker) }
         format.js

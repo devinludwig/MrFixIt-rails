@@ -21,7 +21,11 @@ body {
   margin-top: -10px;
 }
 
- .navigation-menu ul {
+.complete {
+  text-decoration: line-through;
+}
+
+.navigation-menu ul {
    list-style: none;
    background-color: red;
    text-align: center;

@@ -1,1 +1,2 @@
-$('#job<%= @job.id %>').css({'color': 'red', 'text-decoration': 'line-through'});
+$('#job<%= @job.id %>').remove();
+$('#jobs-completed').append("<%= j render('jobs/completed_job', job: @job) %>");
