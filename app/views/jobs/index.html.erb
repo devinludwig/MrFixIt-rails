@@ -16,7 +16,7 @@
       <h1 class="collection-header">Your Job Postings:</h1>
       <% current_user.jobs.each do |job| %>
       <li class="collection-item">
-        <%= link_to job.title, job_path(job), id: 'job' + job.id.to_s %>
+        <%= link_to job.title, job_path(job), id: 'user-job' + job.id.to_s %>
         <% if Worker.exists?(id: job.worker_id) %>
           <span class="right">accepted by <%= job.worker.email %>, (
             <% if job.completed? %>

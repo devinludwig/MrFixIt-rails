@@ -3,12 +3,9 @@ require 'rails_helper'
 RSpec.describe JobsController, type: :controller do
   User.delete_all
   login_user
-  login_worker
-  # let(:job){FactoryGirl.create(:job)}
-  # job.user_id = user.id
-  # job.worker_id = worker.id
+
   let(:valid_attributes) {
-    {title: 'sweep', description: 'with a broom'}
+    {title: 'sweep', description: 'with a broom' }
   }
 
   let(:invalid_attributes) {

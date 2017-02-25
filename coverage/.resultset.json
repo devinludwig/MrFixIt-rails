@@ -7,9 +7,6 @@
         1,
         1,
         1,
-        1,
-        null,
-        null,
         null,
         1,
         5,
@@ -873,10 +870,10 @@
       "/Users/Guest/Desktop/MrFixIt-rails/spec/support/controller_macros.rb": [
         1,
         1,
-        1,
-        8,
-        8,
-        8,
+        0,
+        0,
+        0,
+        0,
         null,
         null,
         null,
@@ -908,13 +905,6 @@
         null,
         null
       ],
-      "/Users/Guest/Desktop/MrFixIt-rails/spec/controllers/workers_controller_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
       "/Users/Guest/Desktop/MrFixIt-rails/spec/features/jobs_integration_spec.rb": [
         1,
         null,
@@ -923,6 +913,7 @@
         6,
         6,
         6,
+        null,
         null,
         1,
         1,
@@ -1020,6 +1011,6 @@
         null
       ]
     },
-    "timestamp": 1487980983
+    "timestamp": 1487984335
   }
 }

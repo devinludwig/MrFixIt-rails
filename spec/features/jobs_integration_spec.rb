@@ -5,7 +5,8 @@ RSpec.describe "the job path", type: :feature do
     User.delete_all
     user = FactoryGirl.create(:user)
     sign_in user
-    }
+  }
+
   it "displays the new job form when a user clicks the new job button" do
     visit(root_path)
     click_link('Add Your Job')
@@ -23,7 +24,7 @@ RSpec.describe "the job path", type: :feature do
   it "displays the show job page when user clicks on a job from the job index" do
     FactoryGirl.create(:job)
     visit(jobs_path)
-    click_on('beat on the brat')
+    click_link('beat on the brat')
     expect(page).to have_content 'No one has claimed this job! click here to claim it now'
   end
 
