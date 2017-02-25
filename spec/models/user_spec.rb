@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it do
+    should have_many :workers
+    should have_many :jobs
+    should validate_presence_of :email
+  end
 end

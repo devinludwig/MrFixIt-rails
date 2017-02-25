@@ -22,6 +22,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'poltergeist', '~> 1.10'
+  gem 'rails-controller-testing'
 end
 
 group :development do

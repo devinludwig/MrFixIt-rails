@@ -18,6 +18,7 @@ class JobsController < ApplicationController
     @job.user_id = current_user.id
     if @job.save
       redirect_to jobs_path
+      flash[:notice] = 'Job was successfully saved!'
     else
       render :new
     end
@@ -37,9 +38,8 @@ class JobsController < ApplicationController
         flash[:notice] = "Something went wrong!"
       end
     else
-      # We need to streamline this process better in the future! - Mr. Fix-It.
-      flash[:notice] = 'You must have a worker account to claim a job. Register for one using the link in the navbar above.'
-      redirect_to job_path(@job)
+      flash[:notice] = 'You must have a worker account to claim a job. Please register below!'
+      redirect_to new_worker_registration_path
     end
   end
 
@@ -59,7 +59,7 @@ class JobsController < ApplicationController
 
   def complete
     @job = Job.find(params[:id])
-    if @job.update(completed: true, in_progress: false, pending: false)
+    if @job.update(completed: true, in_progress: false)
       respond_to do |format|
         format.html { redirect_to worker_path(current_worker) }
         format.js
